@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import './css/App.css';
+// import './css/App.css';
 import Navbar from './containers/Navbar'
 import LatestLaunch from './containers/LatestLaunch'
 import PastLaunches from './containers/PastLaunches'
@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div className="app" style={{ backgroundImage: `url(${require("./images/itl_streak.jpg")})` }  }>
+      <div className="app" >
         <Navbar />
         <Route exact path="/" component={LatestLaunch} />
         <Route exact path="/past" component={PastLaunches} />

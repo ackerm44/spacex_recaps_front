@@ -1,6 +1,6 @@
 import React from 'react'
-import CommentNew from '../containers/CommentNew'
-import CommentShow from './CommentShow'
+// import CommentNew from '../containers/CommentNew'
+// import CommentShow from './CommentShow'
 import DateFormat from './DateFormat'
 
 const LaunchShowDetail = props => {
@@ -29,10 +29,8 @@ const LaunchShowDetail = props => {
         <div className="launchComments">
           <h2>Comments on this Launch</h2>
           <div>
-            <CommentNew launch={props.launch}/>
           </div>
           <div>
-            {props.comments.map(comment => <CommentShow comment={comment} />)}
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { upcomingLaunchesFetchData } from '../actions/upcomingLaunches'
+// import { connect } from 'react-redux'
+// import { upcomingLaunchesFetchData } from '../actions/upcomingLaunches'
 import UpcomingLaunchCard from '../components/UpcomingLaunchCard'
-import '../css/launchIndex.css'
+// import '../css/launchIndex.css'
 
 
 class UpcomingLaunches extends Component {
@@ -34,18 +34,19 @@ class UpcomingLaunches extends Component {
 
 
 
-const mapStateToProps = state => {
-  return {
-    upcomingLaunches: state.upcomingLaunches,
-    hasErrored: state.upcomingLaunchesHasErrored,
-    isLoading: state.upcomingLaunchesIsLoading
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchData: (url) => dispatch(upcomingLaunchesFetchData(url))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(UpcomingLaunches)
+// const mapStateToProps = state => {
+//   return {
+//     upcomingLaunches: state.upcomingLaunches,
+//     hasErrored: state.upcomingLaunchesHasErrored,
+//     isLoading: state.upcomingLaunchesIsLoading
+//   }
+// }
+//
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fetchData: (url) => dispatch(upcomingLaunchesFetchData(url))
+//   }
+// }
+//
+// export default connect(mapStateToProps, mapDispatchToProps)(UpcomingLaunches)
+export default UpcomingLaunches

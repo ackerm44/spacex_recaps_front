@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/launchpads.css'
+// import '../css/launchpads.css'
 
 const Launchpad = props => (
   <div className="launchpadCard">

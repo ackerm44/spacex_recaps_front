@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import Launch from '../components/Launch'
-import { pastLaunchesFetchData } from '../actions/pastLaunches'
-import '../css/launchIndex.css'
+// import { pastLaunchesFetchData } from '../actions/pastLaunches'
+// import '../css/launchIndex.css'
 
 
 class PastLaunches extends Component {
@@ -32,18 +32,19 @@ class PastLaunches extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    pastLaunches: state.pastLaunches,
-    hasErrored: state.pastLaunchesHasErrored,
-    isLoading: state.pastLaunchesIsLoading
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchData: (url) => dispatch(pastLaunchesFetchData(url))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PastLaunches)
+// const mapStateToProps = state => {
+//   return {
+//     pastLaunches: state.pastLaunches,
+//     hasErrored: state.pastLaunchesHasErrored,
+//     isLoading: state.pastLaunchesIsLoading
+//   }
+// }
+//
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fetchData: (url) => dispatch(pastLaunchesFetchData(url))
+//   }
+// }
+//
+// export default connect(mapStateToProps, mapDispatchToProps)(PastLaunches)
+export default PastLaunches

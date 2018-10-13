@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/rockets.css'
+// import '../css/rockets.css'
 // import falcon_1 from '../images/falcon_1.jpg'
 
 const Rocket = props => (
