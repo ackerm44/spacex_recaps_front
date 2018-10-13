@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import './css/App.css';
+import Navbar from './containers/Navbar'
+import LatestLaunch from './containers/LatestLaunch'
+import PastLaunches from './containers/PastLaunches'
+import UpcomingLaunches from './containers/UpcomingLaunches'
+import LaunchShow from './containers/LaunchShow'
+import Rockets from './containers/Rockets'
+import Launchpads from './containers/Launchpads'
+import Footer from './components/Footer'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <Router>
+      <div className="app" style={{ backgroundImage: `url(${require("./images/itl_streak.jpg")})` }  }>
+        <Navbar />
+        <Route exact path="/" component={LatestLaunch} />
+        <Route exact path="/past" component={PastLaunches} />
+        <Route path={'/past/:launchId'} component={LaunchShow} />
+        <Route exact path="/upcoming" component={UpcomingLaunches} />
+        <Route exact path="/rockets" component={Rockets} />
+        <Route exact path="/launchpads" component={Launchpads} />
+        <Footer />
       </div>
+    </Router>
     );
   }
 }
