@@ -6,45 +6,41 @@ import Launch from '../components/Launch'
 
 
 class PastLaunches extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      pastLaunches: null
+    };
+  }
+
   componentDidMount() {
-    this.props.fetchData('/api/past')
+    fetch ('https://api.spacexdata.com/v3/launches/past?sort=flight_number&order=desc')
+    .then((response) => {
+      return response;
+    })
+    .then(response => response.json())
+    .then(pastLaunches => this.setState({pastLaunches: pastLaunches}))
   }
 
   render() {
-    if (this.props.hasErrored) {
-      return <p>Sorry! There was an error loading the latest Launch</p>;
-    }
-
-    if (this.props.isLoading) {
-      return <p>Loading…</p>;
-    }
-
-    return (
-      <div>
-        <h1 className="title">Past Launches</h1>
-        <div className="launchesIndex">
-          {this.props.pastLaunches.map(launch =>
-            <Launch key={launch.launch.id.toString()} launch={launch} />
-          )}
+    if (this.state.pastLaunches === null) {
+      return (
+        <p>Loading</p>
+      )
+    } else {
+      return (
+        <div>
+          <h1 className="title">Past Launches</h1>
+          <div className="launchesIndex">
+            {this.state.pastLaunches.map(launch =>
+              <Launch key={launch.flight_number.toString()} launch={launch} />
+            )}
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     pastLaunches: state.pastLaunches,
-//     hasErrored: state.pastLaunchesHasErrored,
-//     isLoading: state.pastLaunchesIsLoading
-//   }
-// }
-//
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     fetchData: (url) => dispatch(pastLaunchesFetchData(url))
-//   }
-// }
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(PastLaunches)
 export default PastLaunches
