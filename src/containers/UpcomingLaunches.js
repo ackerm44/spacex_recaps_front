@@ -6,29 +6,42 @@ import UpcomingLaunchCard from '../components/UpcomingLaunchCard'
 
 
 class UpcomingLaunches extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      upcomingLaunches: null
+    };
+  }
+
   componentDidMount() {
-    this.props.fetchData('/api/upcoming')
+    fetch ('https://api.spacexdata.com/v3/launches/upcoming')
+    .then((response) => {
+      return response;
+    })
+    .then(response => response.json())
+    .then(upcomingLaunches => this.setState({upcomingLaunches: upcomingLaunches}))
   }
 
   render() {
-    if (this.props.hasErrored) {
-      return <p>Sorry! There was an error loading the latest Launch</p>;
-    }
-
-    if (this.props.isLoading) {
-      return <p>Loading…</p>;
-    }
-
-    return (
-      <div>
-        <h1 className="title">Upcoming Launches</h1>
-        <div className="launchesIndex">
-          {this.props.upcomingLaunches.map(launch =>
-            <UpcomingLaunchCard key={launch.launch.id.toString()} launch={launch} />
-          )}
+    if (this.state.upcomingLaunches === null) {
+      return (
+        <p>Loading</p>
+      )
+    } else {
+      return (
+        <div>
+          <h1 className="title">Upcoming Launches</h1>
+          <div className="launchesIndex">
+            {this.state.upcomingLaunches.map(launch =>
+              <UpcomingLaunchCard key={launch.flight_number.toString()} launch={launch} />
+            )}
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
+
+
   }
 }
 
