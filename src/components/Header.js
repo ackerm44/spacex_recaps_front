@@ -6,12 +6,12 @@ const Header = props => {
     <div>
       <div className="titlebar">
         <div className="site-title">
-          <h1>SpaceXrecapS</h1>
+          <a href="/"><h1>SpaceXrecapS</h1></a>
         </div>
       </div>
       <div className="navlinks">
         <hr />
-        <NavLink to="/" exact >Home</NavLink>
+        <NavLink to="/" exact >Countdown</NavLink>
         <NavLink to="/upcoming" exact >Upcoming Launches</NavLink>
         <NavLink to="/past" exact >Past Launches</NavLink>
         <NavLink to="/rockets" exact >Rockets</NavLink>
