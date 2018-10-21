@@ -5,16 +5,10 @@ import LaunchShowDetail from '../components/LaunchShowDetail'
 
 
 class LaunchShow extends Component {
-  // componentDidMount() {
-  //   this.props.fetchPastLaunches('/api/past');
-  //   this.props.fetchComments('/api/comments');
-  // }
-
   render() {
     return (
       <div>
-        // <LaunchShowDetail launch={this.props.launch} comments={this.props.comments}/>
-        <h1>Upcoming launch to show here</h1>
+        <LaunchShowDetail launch={this.props.launch} />
       </div>
     )
   }

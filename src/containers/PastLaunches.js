@@ -23,6 +23,10 @@ class PastLaunches extends Component {
     .then(pastLaunches => this.setState({pastLaunches: pastLaunches}))
   }
 
+  getLaunchParameter = (flightNumber) => {
+    this.setState({launchShow: null})
+  }
+
   render() {
     if (this.state.pastLaunches === null) {
       return (
@@ -34,7 +38,7 @@ class PastLaunches extends Component {
           <h1 className="title">Past Launches</h1>
           <div className="launchesIndex">
             {this.state.pastLaunches.map(launch =>
-              <Launch key={launch.flight_number.toString()} launch={launch} />
+              <Launch key={launch.flight_number.toString()} launch={launch} flightNumber={this.getLaunchParameter}/>
             )}
           </div>
         </div>
