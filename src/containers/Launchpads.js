@@ -4,27 +4,38 @@ import Launchpad from '../components/Launchpad'
 // import { launchpadsFetchData } from '../actions/launchpads'
 
 class Launchpads extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      launchpads: null
+    }
+  }
+
   componentDidMount() {
-    this.props.fetchData('/api/launchpads')
+    fetch('https://api.spacexdata.com/v3/launchpads')
+    .then((response) => {
+      return response;
+    })
+    .then(response => response.json())
+    .then(launchpads => this.setState({launchpads: launchpads}))
   }
 
   render() {
-    if (this.props.hasErrored) {
-      return <p>Sorry! There was an error loading the latest Launch</p>;
-    }
-
-    if (this.props.isLoading) {
-      return <p>Loading…</p>;
-    }
-
-    return (
-      <div className = "launchpads">
-        <h1 className="title">Launchpads</h1>
-        <div>
-          {this.props.launchpads.map(launchpad => <Launchpad key={launchpad.launchpad.id} launchpad={launchpad} />)}
+    if (this.state.launchpads === null) {
+      return (
+        <p>Loading</p>
+      )
+    } else {
+      return (
+        <div className = "launchpads">
+          <h1 className="title">Launchpads</h1>
+          <div>
+            {this.state.launchpads.map(launchpad => <Launchpad key={launchpad.id} launchpad={launchpad} />)}
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
   }
 }
 
