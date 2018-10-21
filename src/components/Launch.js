@@ -11,6 +11,10 @@ const Launch = props => {
     }
   }
 
+  // sendFlightNumberUp = () => {
+  //
+  // }
+
   return (
     <div>
       <h2><Link to={`/past/${props.launch.flight_number}`}>Flight Number: {props.launch.flight_number}</Link></h2>
