@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 // import { connect } from 'react-redux';
-// import '../css/latestLaunch.css'
+import '../css/_theme.css'
 import Moment from 'react-moment';
 // import 'moment-timezone';
 // import { latestLaunchFetchData } from '../actions/latestLaunch';
@@ -41,7 +41,7 @@ class LatestLaunch extends Component {
       }
       console.log(nextLaunch);
       return (
-        <div>
+        <div className="nextLaunch">
           <h1>NEXT LAUNCH</h1>
           <h1><DateFormat date={nextLaunch.launch_date_utc}/></h1>
           <h1><Moment format="hh:mm:ss a ( UTC  Z)" >{nextLaunch.launch_date_utc}</Moment></h1>

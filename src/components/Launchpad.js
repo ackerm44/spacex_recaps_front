@@ -10,7 +10,7 @@ const Launchpad = props => (
       <p>{props.launchpad.details}</p>
     </div>
     <div className="launchpadImage">
-      <a href={props.launchpad.mage} target="_blank">
+      <a href={props.launchpad.mage} target="_blank" rel="noopener">
         <img src={props.launchpad.image} alt="launchpad" width="350"/>
       </a>
     </div>

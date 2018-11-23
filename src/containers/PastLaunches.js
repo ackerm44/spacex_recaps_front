@@ -38,7 +38,7 @@ class PastLaunches extends Component {
           <h1 className="title">Past Launches</h1>
           <div className="launchesIndex">
             {this.state.pastLaunches.map(launch =>
-              <Launch key={launch.flight_number.toString()} launch={launch} flightNumber={this.getLaunchParameter}/>
+              <Launch key={launch.flight_number.toString()} launch={launch} />
             )}
           </div>
         </div>

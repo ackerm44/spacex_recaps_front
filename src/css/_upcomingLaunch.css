@@ -1,0 +1,9 @@
+.nextLaunch {
+  text-align: center;
+}
+.countdown {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  max-width: 1000px;
+  margin: 0 auto;
+}
